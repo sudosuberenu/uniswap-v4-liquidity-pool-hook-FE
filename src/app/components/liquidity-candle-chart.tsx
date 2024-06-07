@@ -90,10 +90,7 @@ const options = {
 
 const LiquidityCandleChart = () => {
   return (
-    <div
-      className="bg-[#0e1a1e] p-10 rounded-md"
-      style={{ width: "700px", height: "700px" }}
-    >
+    <div className="bg-[#0e1a1e] p-10 rounded-md">
       <h1 className="text-white mb-5">Liquidity Candle Chart</h1>
       {/* <Chart data={mockData} options={options} type="candlestick" /> */}
     </div>

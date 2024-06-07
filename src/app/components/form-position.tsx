@@ -1,14 +1,35 @@
-import { FormContainer, TextFieldElement } from "react-hook-form-mui";
 import { useState } from "react";
+import { FormContainer, TextFieldElement } from "react-hook-form-mui";
+
 import { Button, CircularProgress, FormControl } from "@mui/material";
+import { styled } from "@mui/system";
 
 export default function FormPosition() {
+  const CustomTextField = styled(TextFieldElement)({
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
+      },
+    },
+    "& .MuiInputLabel-root": {
+      color: "white",
+    },
+    "& .MuiInputBase-input": {
+      color: "white",
+    },
+  });
+
   const [loading, setLoading] = useState<boolean>(false);
-  const [liquidity, setLiquidity] = useState<number>(3814.1); // Liquidez actual simulada
+  const [liquidity, setLiquidity] = useState<number>(3814.1);
 
   const submit = async function (data: { amount: string }) {
     setLoading(true);
-    // Simula un retraso para la operación
     setTimeout(() => {
       console.log("Submitted data:", data);
       setLoading(false);
@@ -17,8 +38,7 @@ export default function FormPosition() {
 
   return (
     <section className="w-full bg-[#0e1a1e] p-10 rounded-md">
-      <h2 className="text-white text-xl mb-4">Create Order</h2>
-      <div className="text-white mb-4">Current Liquidity: {liquidity} ETH</div>
+      <div className="text-white mb-4">Liquidity: {liquidity} ETH</div>
       <FormContainer
         defaultValues={{ amount: "" }}
         onSuccess={(data) => submit(data)}
@@ -35,13 +55,8 @@ export default function FormPosition() {
                 fontSize: "0.75rem",
                 marginTop: "0.5rem",
               }}
-              disabled={loading}
             >
-              {loading ? (
-                <CircularProgress size="1.5rem" color="inherit" />
-              ) : (
-                "Long"
-              )}
+              Long
             </Button>
             <Button
               className="w-full rounded-sm"
@@ -53,22 +68,17 @@ export default function FormPosition() {
                 fontSize: "0.75rem",
                 marginTop: "0.5rem",
               }}
-              disabled={loading}
             >
-              {loading ? (
-                <CircularProgress size="1.5rem" color="inherit" />
-              ) : (
-                "Short"
-              )}
+              Short
             </Button>
           </div>
           <FormControl className="flex-grow mb-4">
-            <TextFieldElement
+            <CustomTextField
               name="amount"
               required
               placeholder="Enter amount in ETH"
+              type="number"
               variant="outlined"
-              sx={{ borderColor: "white" }}
             />
           </FormControl>
 
