@@ -6,7 +6,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
 
 const generateMockData = () => {
   const mockData = [];
-  let lastLiquidity = Math.floor(Math.random() * 2000) + 500;
+  let lastLiquidity = Math.floor(Math.random() * 3800) + 500;
   for (let i = 0; i < 50; i++) {
     const side = Math.random() > 0.5 ? "LONG" : "SHORT";
     const time = new Date();
@@ -32,9 +32,9 @@ export default function Trades() {
   const tradesData = generateMockData();
 
   return (
-    <section className="w-full bg-[#0e1a1e] px-10 py-5 rounded-md">
+    <section className="w-full bg-[#0e1a1e]  py-5 rounded-md">
       <h2 className="text-xl mb-4 text-center">Trades</h2>
-      <div className="overflow-y-auto max-h-96">
+      <div className="overflow-y-auto max-h-96 px-5">
         <table className="w-full text-xs">
           <thead>
             <tr>

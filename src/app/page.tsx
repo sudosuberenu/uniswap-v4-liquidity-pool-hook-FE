@@ -43,8 +43,11 @@ export default function Home() {
         </div>
         <div className="w-1/4 flex flex-col gap-y-5">
           <FormPosition />
-          <MyPositions />
         </div>
+      </div>
+
+      <div className="p-5 ">
+        <MyPositions />
       </div>
     </main>
   );
