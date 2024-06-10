@@ -27,6 +27,7 @@ export default function FormPosition() {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [liquidity, setLiquidity] = useState<number>(3814.1);
+  const [isShortSelected, setIsShortSelected] = useState<boolean>(true);
 
   const submit = async function (data: { amount: string }) {
     setLoading(true);
@@ -37,7 +38,7 @@ export default function FormPosition() {
   };
 
   return (
-    <section className="w-full bg-[#0e1a1e] p-10 rounded-md">
+    <section className="w-full bg-[#0e1a1e] p-10 rounded-md hover:outline hover:outline-2 hover:outline-[#50d2c1]">
       <div className="text-white mb-4">Liquidity: {liquidity} ETH</div>
       <FormContainer
         defaultValues={{ amount: "" }}
@@ -50,11 +51,13 @@ export default function FormPosition() {
               variant="contained"
               style={{
                 color: "black",
-                backgroundColor: loading ? "#17453f" : "#50d2c1",
+                backgroundColor: isShortSelected ? "#50d2c1" : "#17453f",
                 boxShadow: "none",
                 fontSize: "0.75rem",
                 marginTop: "0.5rem",
               }}
+              onClick={() => setIsShortSelected(true)}
+              disabled={loading}
             >
               Long
             </Button>
@@ -63,11 +66,13 @@ export default function FormPosition() {
               variant="contained"
               style={{
                 color: "black",
-                backgroundColor: loading ? "#17453f" : "#50d2c1",
+                backgroundColor: isShortSelected ? "#17453f" : "#50d2c1",
                 boxShadow: "none",
                 fontSize: "0.75rem",
                 marginTop: "0.5rem",
               }}
+              onClick={() => setIsShortSelected(false)}
+              disabled={loading}
             >
               Short
             </Button>

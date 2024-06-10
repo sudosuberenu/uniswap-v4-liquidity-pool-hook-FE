@@ -3,7 +3,6 @@ import { AppBar, Box, Button, Tab, Tabs, Typography } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import PropTypes from "prop-types";
 
-// Componente para cada tab panel
 function TabPanel(props: {
   [x: string]: any;
   children: any;
@@ -44,15 +43,13 @@ export default function PositionsTabs() {
 
   const handleCashout = (id: number) => {
     console.log(`Cashing out position with id ${id}`);
-    // Aquí podrías agregar la lógica para hacer cashout de la posición
   };
 
-  // Datos mockeados
   const openPositions = [
     {
       id: 1,
       side: "SHORT",
-      liquidity: 950,
+      liquidity: 3800,
       time: "10:42:51",
       txHash: "0x1234567890abcdef",
     },
@@ -60,7 +57,7 @@ export default function PositionsTabs() {
 
   return (
     <Box
-      className="text-white"
+      className="text-white hover:outline hover:outline-2 hover:outline-[#50d2c1]"
       sx={{ width: "100%", bgcolor: "#0e1a1e", borderRadius: "5px", p: 2 }}
     >
       <AppBar

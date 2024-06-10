@@ -14,7 +14,7 @@ export default function PoolSelection() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative hover:outline hover:outline-2 hover:outline-[#50d2c1]">
       <select
         id="pool"
         value={selectedPool}

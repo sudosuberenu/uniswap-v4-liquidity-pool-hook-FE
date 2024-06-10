@@ -88,7 +88,7 @@ const options = {
 
 const LiquidityCandleChart = () => {
   return (
-    <div className="bg-[#0e1a1e] p-10 rounded-md">
+    <div className="bg-[#0e1a1e] p-10 rounded-md hover:outline hover:outline-2 hover:outline-[#50d2c1]">
       <h1 className="text-white mb-5">Liquidity Candle Chart</h1>
       {/* <Chart data={mockData} options={options} type="candlestick" /> */}
     </div>

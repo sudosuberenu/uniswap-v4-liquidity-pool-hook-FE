@@ -11,7 +11,7 @@ import Trades from "./components/trades";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen bg-[#435D52]  text-white">
+    <main className="flex flex-col min-h-screen bg-[#435D52] text-white">
       <div className="bg-[#0f1a1f] w-full p-5 text-black text-sm text-right">
         <Button
           className="rounded-sm mr-2 text-black bg-[#50d2c1] hover:bg-[#33877c]"
@@ -27,7 +27,7 @@ export default function Home() {
         <span className="font-bold">⚠️ Attention: Mocked FE</span>
       </div>
 
-      <div className="flex gap-x-5 p-5 hidden md:flex">
+      <div className="flex gap-x-5 p-5 hidden lg:flex">
         <div className="w-2/4 flex flex-col gap-y-5">
           <PoolSelection />
           <CurrentJackpot />
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col p-5 md:hidden gap-y-5">
+      <div className="flex flex-col p-5 lg:hidden gap-y-5">
         <div className="flex flex-col gap-y-5">
           <PoolSelection />
           <CurrentJackpot />

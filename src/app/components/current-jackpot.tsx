@@ -29,7 +29,7 @@ const CurrentJackpot = () => {
   const finishTime = new Date(startTime.getTime() + totalTime * 1000);
 
   return (
-    <div className="p-5 bg-[#0e1a1e] text-white rounded-md">
+    <div className="p-5 bg-[#0e1a1e] text-white rounded-md hover:outline hover:outline-2 hover:outline-[#50d2c1]">
       <div className="flex justify-between items-center mb-3">
         <h2 className="text-xl font-bold mb-2">Current Jackpot</h2>
         <div className="ml-3 text-sm">
