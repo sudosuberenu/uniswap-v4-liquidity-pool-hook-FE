@@ -55,6 +55,16 @@ export default function PositionsTabs() {
     },
   ];
 
+  const closedPositions = [
+    {
+      id: 1,
+      side: "LONG",
+      liquidity: 2900,
+      time: "09:42:51",
+      txHash: "0x123423267890abcdef",
+    },
+  ];
+
   return (
     <Box
       className="text-white hover:outline hover:outline-2 hover:outline-[#50d2c1]"
@@ -144,7 +154,66 @@ export default function PositionsTabs() {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Typography variant="body2" className="text-white">
-          No closed positions yet
+          {closedPositions.length === 0 ? (
+            <Typography variant="body2" className="text-white">
+              No open positions yet
+            </Typography>
+          ) : (
+            <table className="w-full text-xs">
+              <thead>
+                <tr>
+                  <th className="text-left py-2">Side</th>
+                  <th className="text-left py-2">Liquidity</th>
+                  <th className="text-left py-2">Time</th>
+                  <th className="text-left py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {closedPositions.map((position) => (
+                  <tr key={position.id} className="border-t border-gray-700">
+                    <td
+                      className={`py-2 ${
+                        position.side === "LONG"
+                          ? "text-green-500"
+                          : "text-red-500"
+                      }`}
+                    >
+                      {position.side}
+                    </td>
+                    <td className="py-2">{position.liquidity}</td>
+                    <td className="py-2">{position.time}</td>
+                    <td className="py-2 flex items-baseline">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        onClick={() => handleCashout(position.id)}
+                        style={{
+                          color: "black",
+                          backgroundColor: "#50d2c1",
+                          boxShadow: "none",
+                          fontSize: "0.75rem",
+                          marginTop: "0.5rem",
+                        }}
+                      >
+                        Redeem
+                      </Button>
+                      <a
+                        href={`https://etherscan.io/tx/${position.txHash}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <LaunchIcon
+                          className="ml-2"
+                          sx={{ fontSize: "15px", color: "#50d2c1" }}
+                        />
+                      </a>{" "}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </Typography>
       </TabPanel>
     </Box>
