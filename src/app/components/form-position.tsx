@@ -39,7 +39,7 @@ export default function FormPosition() {
 
   return (
     <section className="w-full bg-[#0e1a1e] p-10 rounded-md hover:outline hover:outline-2 hover:outline-[#50d2c1]">
-      <div className="text-white mb-4">Liquidity: {liquidity} ETH</div>
+      <div className="text-white mb-4">Liquidity delta: {liquidity}</div>
       <FormContainer
         defaultValues={{ amount: "" }}
         onSuccess={(data) => submit(data)}
